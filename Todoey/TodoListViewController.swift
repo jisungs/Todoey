@@ -10,7 +10,7 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
     
-    let itemArray = ["First", "secomd", "third"]
+    var itemArray = ["First", "secomd", "third"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,31 @@ class TodoListViewController: UITableViewController {
         //whend the cell is selected the gray highlingt is glitter at short time and disappear.
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
-
+    
+    //MARK: - Add New Items
+    
+    @IBAction func addButtonPressed(_ sender: Any) {
+        
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            //What wiil happen one the user clicks the add item button on our UIAlert
+       
+            self.itemArray.append(textField.text!)
+            
+            self.tableView.reloadData()
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Creat new item"
+            textField = alertTextField
+        }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
 
