@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9609D9D321BB089B00B9C69E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609D9D221BB089B00B9C69E /* Data.swift */; };
 		9611CC3621B8666900AFBEA9 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9611CC3521B8666900AFBEA9 /* CategoryViewController.swift */; };
 		965C792221ADDBEF0066E9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C792121ADDBEF0066E9A7 /* AppDelegate.swift */; };
 		965C792421ADDBEF0066E9A7 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C792321ADDBEF0066E9A7 /* TodoListViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		8A448FDBC701402FCB34AC86 /* Pods-Todoey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoey.debug.xcconfig"; path = "Target Support Files/Pods-Todoey/Pods-Todoey.debug.xcconfig"; sourceTree = "<group>"; };
+		9609D9D221BB089B00B9C69E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9611CC3521B8666900AFBEA9 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		965C791E21ADDBEF0066E9A7 /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965C792121ADDBEF0066E9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 				8A448FDBC701402FCB34AC86 /* Pods-Todoey.debug.xcconfig */,
 				FCCF804F87DC9CC674728FEF /* Pods-Todoey.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -66,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				96DAB9D221B32BE700D23A87 /* DataModel.xcdatamodeld */,
+				9609D9D221BB089B00B9C69E /* Data.swift */,
 			);
 			path = DataModal;
 			sourceTree = "<group>";
@@ -250,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9611CC3621B8666900AFBEA9 /* CategoryViewController.swift in Sources */,
+				9609D9D321BB089B00B9C69E /* Data.swift in Sources */,
 				965C792421ADDBEF0066E9A7 /* TodoListViewController.swift in Sources */,
 				96DAB9D421B32BE700D23A87 /* DataModel.xcdatamodeld in Sources */,
 				965C792221ADDBEF0066E9A7 /* AppDelegate.swift in Sources */,
