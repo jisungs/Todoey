@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class TodoListViewController: UITableViewController {
+class TodoListViewController: SwipeTableViewController {
     
     var todoItems : Results<Item>?
     let realm = try! Realm()
@@ -39,7 +39,7 @@ class TodoListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
@@ -125,24 +125,22 @@ class TodoListViewController: UITableViewController {
         
         todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
         tableView.reloadData()
-        
-//   let request : NSFetchRequest<Item> = Item.fetchRequest()
-//
-//        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
-//
-//        if let additionalPredicate = predicate {
-//            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
-//        }else {
-//            request.predicate = categoryPredicate
-    //   }
-//
-//
-//        do {
-//         todoItems = try context.fetch(request)
-//        } catch {
-//            print("Error fetching context \(error)")
-//        }
+
     }
+    
+    //MARL: - Delete Data from swipe
+    override func updateModel(at indexPath: IndexPath) {
+        if let itemDeletion = self.todoItems?[indexPath.row]{
+            do {
+                try realm.write {
+                    realm.delete(itemDeletion)
+                }
+            }catch {
+                print("Error occur when delete action \(error)")
+            }
+        }
+    }
+    
     
 } // End of viewcontroller
 
@@ -156,14 +154,6 @@ extension TodoListViewController: UISearchBarDelegate {
         
         tableView.reloadData()
     }
-//        let request: NSFetchRequest<Item> = Item.fetchRequest()
-//
-//        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-//
-//        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-//
-//        loadItems(with: request, predicate: predicate)
-
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0{
